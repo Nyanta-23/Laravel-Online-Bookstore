@@ -11,19 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('order_items', function (Blueprint $table) {
             $table->id();
-            $table->text('description');
-            $table->enum('status', ['failed', 'packing', 'sending', 'complete']);
-            $table->decimal('total_price');
-
+            $table->integer('quantity');
+            $table->decimal('price');
+            
+            $table->foreignId('order_id')->constrained(
+                table: 'orders',
+                indexName: 'orderItem_order_id',
+            );
             $table->foreignId('book_id')->constrained(
                 table: 'books',
-                indexName: 'order_book_id',
-            );
-            $table->foreignId('user_id')->constrained(
-                table: 'users',
-                indexName: 'order_user_id',
+                indexName: 'orderItem_book_id'
             );
             $table->timestamps();
         });
@@ -34,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('order_items');
     }
 };

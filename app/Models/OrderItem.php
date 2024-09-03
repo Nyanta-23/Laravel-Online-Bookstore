@@ -6,17 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Book extends Model
+class OrderItem extends Model
 {
     use HasFactory;
 
-    public function author(): BelongsTo
+    public function book(): BelongsTo
     {
-        return $this->belongsTo(Author::class);
+        return $this->belongsTo(Book::class);
     }
 
-    public function category(): BelongsTo
+    public function order(): BelongsTo
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Order::class);
     }
 }
