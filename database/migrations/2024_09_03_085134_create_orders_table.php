@@ -15,6 +15,14 @@ return new class extends Migration
             $table->id();
             $table->text('description');
             $table->enum('status', ['failed', 'progress', 'packing', 'sending', 'complete']);
+            $table->foreignId('book_id')->constrained(
+                table: 'books',
+                indexName: 'order_book_id',
+            );
+            $table->foreignId('user_id')->constrained(
+                table: 'users',
+                indexName: 'order_user_id',
+            );
             $table->timestamps();
         });
     }

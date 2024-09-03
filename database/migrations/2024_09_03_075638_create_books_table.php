@@ -18,10 +18,17 @@ return new class extends Migration
             $table->text('description');
             $table->double('price');
             $table->integer('stock');
+            $table->foreignId('author_id')->constrained(
+                table: 'authors',
+                indexName: 'books_author_id',
+            );
+            $table->foreignId('category_id')->constrained(
+                table: 'categories',
+                indexName: 'books_category_id'
+            );
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      */
