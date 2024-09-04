@@ -13,6 +13,8 @@ Route::get('/', function () {
 Route::get('/book/{book:slug}', function(Book $book) {
 
     return view('book', [
-        'title' => 'Detail Book'
+        'title' => 'Detail Book of ' . $book->name,
+        'book' => $book
+
     ]);
 });

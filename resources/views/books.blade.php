@@ -11,8 +11,11 @@
                         class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
                         <div class="h-56 w-full relative">
                             <span
-                                class="absolute inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 left-2 top-2"><a
-                                    href="#">{{ $book->category->name }}</a></span>
+                                class="absolute inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 left-2 top-2">
+                                <a href="#">
+                                    {{ $book->category->name }}
+                                </a>
+                            </span>
 
                             <a href="/book/{{ $book->slug }}">
                                 <img class="mx-auto h-full dark:hidden"
@@ -20,13 +23,11 @@
                                     alt="" />
                             </a>
                         </div>
-                        <div class="pt-6">
-
+                        <div class="pt-6 truncate">
                             <a href="/book/{{ $book->slug }}"
-                                class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">Apple
+                                class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">
                                 {{ $book->name }}
                             </a>
-
                         </div>
 
                         <div class="mt-4 flex flex-col gap-4">

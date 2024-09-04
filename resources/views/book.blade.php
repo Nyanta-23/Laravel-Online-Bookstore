@@ -11,36 +11,41 @@
             <div class="lg:col-span-1 lg:pr-8 flex justify-center">
                 <div class="">
                     <img src="https://via.placeholder.com/250x300.png" alt="">
-                    <p class="text-xs text-center text-gray-500 font-semibold mt-5">The cover image may be different.
-                    </p>
+                    <p class="text-xs text-center text-gray-500 font-semibold mt-5">The cover image may be different.</p>
                 </div>
             </div>
 
             <div class="py-10 lg:col-span-2 lg:col-start-2 lg:pb-16 lg:pr-8 lg:pt-0">
 
                 <div class="mb-5">
-                    <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Basic Tee 6-Pack</h1>
+                    <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{ $book->name }}</h1>
+                </div>
+
+                <div class="mb-5">
+                    <span
+                        class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-700/10 left-2 top-2">
+                        <a href="#">{{ $book->category->name }}</a>
+                    </span>
                 </div>
 
                 <div>
                     <h3 class="text-lg font-semibold mb-2">Synopsis</h3>
 
                     <div class="space-y-6">
-                        <p class="text-base text-gray-900">The Basic Tee 6-Pack allows you to fully express your
-                            vibrant personality with three grayscale options. Feeling adventurous? Put on a heather
-                            gray tee. Want to be a trendsetter? Try our exclusive colorway: &quot;Black&quot;. Need
-                            to add an extra pop of color to your outfit? Our white tee has you covered.</p>
+                        <p class="text-base text-gray-900">
+                            {{ $book->synopsis }}
+                        </p>
                     </div>
                 </div>
 
                 <div class="mt-5">
-                    <h3 class="text-lg font-medium text-gray-900">Nyanta (Author)</h3>
+                    <h3 class="text-lg font-medium text-gray-900">{{ $book->author->name }} (Author)</h3>
                 </div>
             </div>
 
-            <div class="mt-4 lg:col-span-1 lg:mt-0">
+            <div class="mt-4 lg:col-span-1 lg:mt-0 border-2 px-5 py-3 rounded-lg">
 
-                <h5 class="font-semibold text-2xl">Buy Now!</h5>
+                <h5 class="font-semibold text-2xl">Free Delivery!</h5>
 
                 <form class="mt-5">
 
@@ -74,7 +79,8 @@
                         </div>
                     </div>
 
-                    <p class="text-3xl tracking-tight text-gray-900 mt-10 mb-5">$192</p>
+                    <p class="text-3xl tracking-tight text-gray-900 mt-10 mb-5">Rp.
+                        {{ Number::format($book->price, locale: 'id') }}</p>
 
                     <button type="submit"
                         class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
@@ -91,7 +97,7 @@
 
         </div>
 
-        </div>
+    </div>
 
 
 </x-layout>
