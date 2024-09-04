@@ -21,8 +21,8 @@ class BookFactory extends Factory
         return [
             'name' => fake()->sentence(3, false),
             'slug' => fake()->slug(),
-            'description' => fake()->paragraph(4, false),
-            'price' => round(rand(100000,1000000)),
+            'synopsis' => fake()->paragraph(4, false),
+            'price' => round(rand(50000,1000000)),
             'stock' => round(rand(50,200)),
             'author_id' => Author::factory(),
             'category_id' => Category::factory()

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->text('description');
+            $table->text('synopsis');
             $table->double('price');
             $table->integer('stock');
             $table->text('image')->nullable();
