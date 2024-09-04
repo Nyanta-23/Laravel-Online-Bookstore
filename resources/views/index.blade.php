@@ -2,9 +2,6 @@
 
     <x-slot:title>Dashboard</x-slot:title>
 
-    <h1>Test</h1>
-
-
     <section class="bg-gray-50 py-8 antialiased dark:bg-gray-900 md:py-12">
         <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
             <!-- Heading & Filters -->
@@ -24,7 +21,7 @@
                             class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">Apple
                             iMac 27", 1TB HDD, Retina 5K Display, M3 Max
                         </a>
-                        
+
                     </div>
 
                     <div class="mt-4 flex flex-col gap-4">

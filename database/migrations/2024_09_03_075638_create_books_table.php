@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->text('description');
             $table->double('price');
             $table->integer('stock');
+            $table->text('image')->nullable();
             $table->foreignId('author_id')->constrained(
                 table: 'authors',
                 indexName: 'books_author_id',
