@@ -26,10 +26,13 @@ Route::get('/admin', function () {
     return view('admin.dashboard');
 });
 
-
-
-Route::get('/admin/books', function () {
-    return view('admin.book.index');
-});
-
 Route::resource('/admin/books', BookController::class);
+
+
+// Sekaragn buat authentication nya setelah itu dipikirin lagi nanti
+Route::post('/signup', function () {
+    
+});
+Route::post('/signin', function () {
+
+});
