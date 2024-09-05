@@ -1,251 +1,284 @@
-{{-- Navbar --}}
+<nav class="sticky top-0 z-50  bg-white dark:bg-gray-800 antialiased">
+    <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4">
+        <div class="flex items-center justify-between">
 
-<nav
-    class="bg-white border-b border-gray-200 px-4 py-2.5 dark:bg-gray-800 dark:border-gray-700 fixed left-0 right-0 top-0 z-50">
-    <div class="flex flex-wrap justify-between items-center">
-        <div class="flex justify-start items-center">
-            <button data-drawer-target="drawer-navigation" data-drawer-toggle="drawer-navigation"
-                aria-controls="drawer-navigation"
-                class="p-2 mr-2 text-gray-600 rounded-lg cursor-pointer md:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                        clip-rule="evenodd"></path>
-                </svg>
-                <svg aria-hidden="true" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                        clip-rule="evenodd"></path>
-                </svg>
-                <span class="sr-only">Toggle sidebar</span>
-            </button>
-            <a href="/" class="flex items-center justify-between mr-4">
-                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                    <path fill-rule="evenodd"
-                        d="M6 2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 1 0 0-2h-2v-2h2a1 1 0 0 0 1-1V4a2 2 0 0 0-2-2h-8v16h5v2H7a1 1 0 1 1 0-2h1V2H6Z"
-                        clip-rule="evenodd" />
-                </svg>
+            <div class="flex items-center space-x-8">
+                <div class="shrink-0">
+                    <a href="#" title="" class="">
+                        <div class="flex items-center text-2xl font-bold gap-1">
 
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Storebook</span>
-            </a>
+                            <svg class="w-7 h-7 text-gray-800 dark:text-white" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M6 2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 1 0 0-2h-2v-2h2a1 1 0 0 0 1-1V4a2 2 0 0 0-2-2h-8v16h5v2H7a1 1 0 1 1 0-2h1V2H6Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            Storebook
+                        </div>
+                    </a>
+                </div>
+
+                <ul class="hidden lg:flex items-center justify-start gap-6 md:gap-8 py-3 sm:justify-center">
+                    <li>
+                        <a href="#" title=""
+                            class="flex text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500">
+                            Home
+                        </a>
+                    </li>
+                    <li class="shrink-0">
+                        <a href="#" title=""
+                            class="flex text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500">
+                            Best Sellers
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex items-center lg:space-x-2">
+
+                <button id="myCartDropdownButton1" data-dropdown-toggle="myCartDropdown1" type="button"
+                    class="inline-flex items-center rounded-lg justify-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm font-medium leading-none text-gray-900 dark:text-white">
+                    <span class="sr-only">
+                        Cart
+                    </span>
+                    <svg class="w-5 h-5 lg:me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
+                    </svg>
+                    <span class="hidden sm:flex">My Cart</span>
+                    <svg class="hidden sm:flex w-4 h-4 text-gray-900 dark:text-white ms-1" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                        viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m19 9-7 7-7-7" />
+                    </svg>
+                </button>
+
+                <div id="myCartDropdown1"
+                    class="hidden z-10 mx-auto max-w-sm space-y-4 overflow-hidden rounded-lg bg-white p-4 antialiased shadow-lg dark:bg-gray-800">
+                    <div class="grid grid-cols-2">
+                        <div>
+                            <a href="#"
+                                class="truncate text-sm font-semibold leading-none text-gray-900 dark:text-white hover:underline">Apple
+                                iPhone 15</a>
+                            <p class="mt-0.5 truncate text-sm font-normal text-gray-500 dark:text-gray-400">$599</p>
+                        </div>
+
+                        <div class="flex items-center justify-end gap-6">
+                            <p class="text-sm font-normal leading-none text-gray-500 dark:text-gray-400">Qty: 1</p>
+
+                            <button data-tooltip-target="tooltipRemoveItem1a" type="button"
+                                class="text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-600">
+                                <span class="sr-only"> Remove </span>
+                                <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd"
+                                        d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0Zm7.7-3.7a1 1 0 0 0-1.4 1.4l2.3 2.3-2.3 2.3a1 1 0 1 0 1.4 1.4l2.3-2.3 2.3 2.3a1 1 0 0 0 1.4-1.4L13.4 12l2.3-2.3a1 1 0 0 0-1.4-1.4L12 10.6 9.7 8.3Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div id="tooltipRemoveItem1a" role="tooltip"
+                                class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700">
+                                Remove item
+                                <div class="tooltip-arrow" data-popper-arrow></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2">
+                        <div>
+                            <a href="#"
+                                class="truncate text-sm font-semibold leading-none text-gray-900 dark:text-white hover:underline">Apple
+                                iPad Air</a>
+                            <p class="mt-0.5 truncate text-sm font-normal text-gray-500 dark:text-gray-400">$499</p>
+                        </div>
+
+                        <div class="flex items-center justify-end gap-6">
+                            <p class="text-sm font-normal leading-none text-gray-500 dark:text-gray-400">Qty: 1</p>
+
+                            <button data-tooltip-target="tooltipRemoveItem2a" type="button"
+                                class="text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-600">
+                                <span class="sr-only"> Remove </span>
+                                <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd"
+                                        d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0Zm7.7-3.7a1 1 0 0 0-1.4 1.4l2.3 2.3-2.3 2.3a1 1 0 1 0 1.4 1.4l2.3-2.3 2.3 2.3a1 1 0 0 0 1.4-1.4L13.4 12l2.3-2.3a1 1 0 0 0-1.4-1.4L12 10.6 9.7 8.3Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div id="tooltipRemoveItem2a" role="tooltip"
+                                class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700">
+                                Remove item
+                                <div class="tooltip-arrow" data-popper-arrow></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2">
+                        <div>
+                            <a href="#"
+                                class="truncate text-sm font-semibold leading-none text-gray-900 dark:text-white hover:underline">Apple
+                                Watch SE</a>
+                            <p class="mt-0.5 truncate text-sm font-normal text-gray-500 dark:text-gray-400">$598</p>
+                        </div>
+
+                        <div class="flex items-center justify-end gap-6">
+                            <p class="text-sm font-normal leading-none text-gray-500 dark:text-gray-400">Qty: 2</p>
+
+                            <button data-tooltip-target="tooltipRemoveItem3b" type="button"
+                                class="text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-600">
+                                <span class="sr-only"> Remove </span>
+                                <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd"
+                                        d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0Zm7.7-3.7a1 1 0 0 0-1.4 1.4l2.3 2.3-2.3 2.3a1 1 0 1 0 1.4 1.4l2.3-2.3 2.3 2.3a1 1 0 0 0 1.4-1.4L13.4 12l2.3-2.3a1 1 0 0 0-1.4-1.4L12 10.6 9.7 8.3Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div id="tooltipRemoveItem3b" role="tooltip"
+                                class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700">
+                                Remove item
+                                <div class="tooltip-arrow" data-popper-arrow></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2">
+                        <div>
+                            <a href="#"
+                                class="truncate text-sm font-semibold leading-none text-gray-900 dark:text-white hover:underline">Sony
+                                Playstation 5</a>
+                            <p class="mt-0.5 truncate text-sm font-normal text-gray-500 dark:text-gray-400">$799</p>
+                        </div>
+
+                        <div class="flex items-center justify-end gap-6">
+                            <p class="text-sm font-normal leading-none text-gray-500 dark:text-gray-400">Qty: 1</p>
+
+                            <button data-tooltip-target="tooltipRemoveItem4b" type="button"
+                                class="text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-600">
+                                <span class="sr-only"> Remove </span>
+                                <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd"
+                                        d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0Zm7.7-3.7a1 1 0 0 0-1.4 1.4l2.3 2.3-2.3 2.3a1 1 0 1 0 1.4 1.4l2.3-2.3 2.3 2.3a1 1 0 0 0 1.4-1.4L13.4 12l2.3-2.3a1 1 0 0 0-1.4-1.4L12 10.6 9.7 8.3Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div id="tooltipRemoveItem4b" role="tooltip"
+                                class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700">
+                                Remove item
+                                <div class="tooltip-arrow" data-popper-arrow></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2">
+                        <div>
+                            <a href="#"
+                                class="truncate text-sm font-semibold leading-none text-gray-900 dark:text-white hover:underline">Apple
+                                iMac 20"</a>
+                            <p class="mt-0.5 truncate text-sm font-normal text-gray-500 dark:text-gray-400">$8,997</p>
+                        </div>
+
+                        <div class="flex items-center justify-end gap-6">
+                            <p class="text-sm font-normal leading-none text-gray-500 dark:text-gray-400">Qty: 3</p>
+
+                            <button data-tooltip-target="tooltipRemoveItem5b" type="button"
+                                class="text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-600">
+                                <span class="sr-only"> Remove </span>
+                                <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd"
+                                        d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0Zm7.7-3.7a1 1 0 0 0-1.4 1.4l2.3 2.3-2.3 2.3a1 1 0 1 0 1.4 1.4l2.3-2.3 2.3 2.3a1 1 0 0 0 1.4-1.4L13.4 12l2.3-2.3a1 1 0 0 0-1.4-1.4L12 10.6 9.7 8.3Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div id="tooltipRemoveItem5b" role="tooltip"
+                                class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700">
+                                Remove item
+                                <div class="tooltip-arrow" data-popper-arrow></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" title=""
+                        class="mb-2 me-2 inline-flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                        role="button"> Proceed to Checkout </a>
+                </div>
+
+                <button id="userDropdownButton1" data-dropdown-toggle="userDropdown1" type="button"
+                    class="inline-flex items-center rounded-lg justify-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm font-medium leading-none text-gray-900 dark:text-white">
+                    <svg class="w-5 h-5 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-width="2"
+                            d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>
+                    Account
+                    <svg class="w-4 h-4 text-gray-900 dark:text-white ms-1" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                        viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m19 9-7 7-7-7" />
+                    </svg>
+                </button>
+
+                <div id="userDropdown1"
+                    class="hidden z-10 w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-white antialiased shadow dark:divide-gray-600 dark:bg-gray-700">
+                    <ul class="p-2 text-start text-sm font-medium text-gray-900 dark:text-white">
+                        <li><a href="#" title=""
+                                class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
+                                My Account </a></li>
+                        <li><a href="#" title=""
+                                class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
+                                My Orders </a></li>
+                        <li><a href="#" title=""
+                                class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
+                                Settings </a></li>
+                        <li><a href="#" title=""
+                                class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
+                                Favourites </a></li>
+                        <li><a href="#" title=""
+                                class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
+                                Delivery Addresses </a></li>
+                        <li><a href="#" title=""
+                                class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
+                                Billing Data </a></li>
+                    </ul>
+
+                    <div class="p-2 text-sm font-medium text-gray-900 dark:text-white">
+                        <a href="#" title=""
+                            class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
+                            Sign Out </a>
+                    </div>
+                </div>
+
+                <button type="button" data-collapse-toggle="ecommerce-navbar-menu-1"
+                    aria-controls="ecommerce-navbar-menu-1" aria-expanded="false"
+                    class="inline-flex lg:hidden items-center justify-center hover:bg-gray-100 rounded-md dark:hover:bg-gray-700 p-2 text-gray-900 dark:text-white">
+                    <span class="sr-only">
+                        Open Menu
+                    </span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                            d="M5 7h14M5 12h14M5 17h14" />
+                    </svg>
+                </button>
+            </div>
         </div>
 
-        <div class="flex items-center lg:order-2">
-            <!-- Notifications -->
-            <button type="button" data-dropdown-toggle="notification-dropdown"
-                class="p-2 mr-1 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600">
-                <span class="sr-only">View notifications</span>
-                <!-- Bell icon -->
-                <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z">
-                    </path>
-                </svg>
-            </button>
-            <!-- Dropdown menu -->
-            <div class="hidden overflow-hidden z-50 my-4 max-w-sm text-base list-none bg-white divide-y divide-gray-100 shadow-lg dark:divide-gray-600 dark:bg-gray-700 rounded-xl"
-                id="notification-dropdown">
-                <div
-                    class="block py-2 px-4 text-base font-medium text-center text-gray-700 bg-gray-50 dark:bg-gray-600 dark:text-gray-300">
-                    Notifications
-                </div>
-                <div>
-                    <a href="#"
-                        class="flex py-3 px-4 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
-                        <div class="flex-shrink-0">
-                            <img class="w-11 h-11 rounded-full"
-                                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
-                                alt="Bonnie Green avatar" />
-                            <div
-                                class="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 rounded-full border border-white bg-primary-700 dark:border-gray-700">
-                                <svg aria-hidden="true" class="w-3 h-3 text-white" fill="currentColor"
-                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z">
-                                    </path>
-                                    <path
-                                        d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z">
-                                    </path>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="pl-3 w-full">
-                            <div class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
-                                New message from
-                                <span class="font-semibold text-gray-900 dark:text-white">Bonnie Green</span>:
-                                "Hey, what's up? All set for the presentation?"
-                            </div>
-                            <div class="text-xs font-medium text-primary-600 dark:text-primary-500">
-                                a few moments ago
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#"
-                        class="flex py-3 px-4 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
-                        <div class="flex-shrink-0">
-                            <img class="w-11 h-11 rounded-full"
-                                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                                alt="Jese Leos avatar" />
-                            <div
-                                class="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-gray-900 rounded-full border border-white dark:border-gray-700">
-                                <svg aria-hidden="true" class="w-3 h-3 text-white" fill="currentColor"
-                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z">
-                                    </path>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="pl-3 w-full">
-                            <div class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
-                                <span class="font-semibold text-gray-900 dark:text-white">Jese leos</span>
-                                and
-                                <span class="font-medium text-gray-900 dark:text-white">5 others</span>
-                                started following you.
-                            </div>
-                            <div class="text-xs font-medium text-primary-600 dark:text-primary-500">
-                                10 minutes ago
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#"
-                        class="flex py-3 px-4 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
-                        <div class="flex-shrink-0">
-                            <img class="w-11 h-11 rounded-full"
-                                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png"
-                                alt="Joseph McFall avatar" />
-                            <div
-                                class="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-red-600 rounded-full border border-white dark:border-gray-700">
-                                <svg aria-hidden="true" class="w-3 h-3 text-white" fill="currentColor"
-                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                        d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="pl-3 w-full">
-                            <div class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
-                                <span class="font-semibold text-gray-900 dark:text-white">Joseph Mcfall</span>
-                                and
-                                <span class="font-medium text-gray-900 dark:text-white">141 others</span>
-                                love your story. See it and view more stories.
-                            </div>
-                            <div class="text-xs font-medium text-primary-600 dark:text-primary-500">
-                                44 minutes ago
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#"
-                        class="flex py-3 px-4 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
-                        <div class="flex-shrink-0">
-                            <img class="w-11 h-11 rounded-full"
-                                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png"
-                                alt="Roberta Casas image" />
-                            <div
-                                class="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-green-400 rounded-full border border-white dark:border-gray-700">
-                                <svg aria-hidden="true" class="w-3 h-3 text-white" fill="currentColor"
-                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                        d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="pl-3 w-full">
-                            <div class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
-                                <span class="font-semibold text-gray-900 dark:text-white">Leslie
-                                    Livingston</span>
-                                mentioned you in a comment:
-                                <span class="font-medium text-primary-600 dark:text-primary-500">@bonnie.green</span>
-                                what do you say?
-                            </div>
-                            <div class="text-xs font-medium text-primary-600 dark:text-primary-500">
-                                1 hour ago
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#" class="flex py-3 px-4 hover:bg-gray-100 dark:hover:bg-gray-600">
-                        <div class="flex-shrink-0">
-                            <img class="w-11 h-11 rounded-full"
-                                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/robert-brown.png"
-                                alt="Robert image" />
-                            <div
-                                class="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-purple-500 rounded-full border border-white dark:border-gray-700">
-                                <svg aria-hidden="true" class="w-3 h-3 text-white" fill="currentColor"
-                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z">
-                                    </path>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="pl-3 w-full">
-                            <div class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
-                                <span class="font-semibold text-gray-900 dark:text-white">Robert Brown</span>
-                                posted a new video: Glassmorphism - learn how to implement
-                                the new design trend.
-                            </div>
-                            <div class="text-xs font-medium text-primary-600 dark:text-primary-500">
-                                3 hours ago
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <a href="#"
-                    class="block py-2 text-md font-medium text-center text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-600 dark:text-white dark:hover:underline">
-                    <div class="inline-flex items-center">
-                        <svg aria-hidden="true" class="mr-2 w-4 h-4 text-gray-500 dark:text-gray-400"
-                            fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
-                            <path fill-rule="evenodd"
-                                d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        View all
-                    </div>
-                </a>
-            </div>
-
-            <button type="button"
-                class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
-                <span class="sr-only">Open user menu</span>
-                <img class="w-8 h-8 rounded-full"
-                    src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gough.png"
-                    alt="user photo" />
-            </button>
-            <!-- Dropdown menu -->
-            <div class="hidden z-50 my-4 w-56 text-base list-none bg-white divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 rounded-xl"
-                id="dropdown">
-                <div class="py-3 px-4">
-                    <span class="block text-sm font-semibold text-gray-900 dark:text-white">Neil Sims</span>
-                    <span class="block text-sm text-gray-900 truncate dark:text-white">name@flowbite.com</span>
-                </div>
-                <ul class="py-1 text-gray-700 dark:text-gray-300" aria-labelledby="dropdown">
-                    <li>
-                        <a href="#"
-                            class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">My
-                            profile</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Account
-                            settings</a>
-                    </li>
-                </ul>
-                <ul class="py-1 text-gray-700 dark:text-gray-300" aria-labelledby="dropdown">
-                    <li>
-                        <a href="#"
-                            class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign
-                            out</a>
-                    </li>
-                </ul>
-            </div>
+        <div id="ecommerce-navbar-menu-1"
+            class="bg-gray-50 dark:bg-gray-700 dark:border-gray-600 border border-gray-200 rounded-lg py-3 hidden px-4 mt-4">
+            <ul class="text-gray-900 dark:text-white text-sm font-medium space-y-3">
+                <li>
+                    <a href="#" class="hover:text-primary-700 dark:hover:text-primary-500">Home</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:text-primary-700 dark:hover:text-primary-500">Best Sellers</a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>

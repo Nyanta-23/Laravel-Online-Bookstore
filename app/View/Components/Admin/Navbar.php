@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components\layout;
+namespace App\View\Components\Admin;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Head extends Component
+class Navbar extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class Head extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.layout.head');
+        return view('components.admin.navbar');
     }
 }
