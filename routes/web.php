@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
 use App\Models\Book;
 use Illuminate\Support\Facades\Route;
@@ -30,9 +31,10 @@ Route::resource('/admin/books', BookController::class);
 
 
 // Sekaragn buat authentication nya setelah itu dipikirin lagi nanti
-Route::post('/signup', function () {
-    
-});
-Route::post('/signin', function () {
 
-});
+Route::get('/auth/signup', [AuthController::class, 'signup']);
+Route::get('/auth/signin', [AuthController::class, 'signin']);
+Route::post('/auth/signup', [AuthController::class, 'regist']);
+Route::post('/auth/signin', [AuthController::class, 'auth']);
+
+// Buat middleware untuk selanjutnaya sisanya dipikirin lagi

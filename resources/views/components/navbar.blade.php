@@ -270,9 +270,8 @@
 
                 </div>
             @else
-
                 <div class="flex items-center">
-                    <button data-modal-target="signup-modal" data-modal-toggle="signup-modal"
+                    <a href="/auth/signup"
                         class="inline-flex items-center rounded-lg justify-center py-2 px-3 hover:bg-white hover:border hover:border-blue-500 hover:text-blue-500  dark:hover:bg-gray-700 text-md gap-2 font-medium leading-none text-gray-100 dark:text-white bg-blue-500 group lg:mr-1">
                         <svg class="w-7 h-7 text-gray-100 group-hover:text-blue-500  dark:text-white" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
@@ -282,9 +281,10 @@
                                 clip-rule="evenodd" />
                         </svg>
                         SignUp
-                    </button>
+                    </a>
                     Or
-                    <button data-modal-target="signin-modal" data-modal-toggle="signin-modal" class="inline-flex items-center rounded-lg justify-center py-2 px-3 text-blue-500 hover:bg-blue-500 dark:hover:bg-gray-700 text-md gap-2 font-medium leading-none dark:text-white border border-blue-500 mx-0 lg:ml-1 group hover:text-gray-100">
+                    <a href="/auth/signin"
+                        class="inline-flex items-center rounded-lg justify-center py-2 px-3 text-blue-500 hover:bg-blue-500 dark:hover:bg-gray-700 text-md gap-2 font-medium leading-none dark:text-white border border-blue-500 mx-0 lg:ml-1 group hover:text-gray-100">
                         <svg class="w-7 h-7 text-blue-500 dark:text-white group-hover:text-gray-100" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                             viewBox="0 0 24 24">
@@ -292,155 +292,7 @@
                                 d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2" />
                         </svg>
                         SignIn
-                    </button>
-                </div>
-
-
-                <!-- SignIn modal -->
-                
-                <div id="signin-modal" tabindex="-1" aria-hidden="true"
-                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                    <div class="relative p-4 w-full max-w-md max-h-full">
-                        <!-- SignIn modal content -->
-                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                            <!-- SignIn modal header -->
-                            <div
-                                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                    Sign in to our platform
-                                </h3>
-                                <button type="button"
-                                    class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                    data-modal-hide="signin-modal">
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                    </svg>
-                                    <span class="sr-only">Close modal</span>
-                                </button>
-                            </div>
-                            <!-- SignIn modal body -->
-                            <div class="p-4 md:p-5">
-                                <form class="space-y-4" action="#">
-                                    <div>
-                                        <label for="email"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
-                                            email</label>
-                                        <input type="email" name="email" id="email"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                            placeholder="name@company.com" required />
-                                    </div>
-                                    <div>
-                                        <label for="password"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
-                                            password</label>
-                                        <input type="password" name="password" id="password" placeholder="••••••••"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                            required />
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <div class="flex items-start">
-                                            <div class="flex items-center h-5">
-                                                <input id="remember" type="checkbox" value=""
-                                                    class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-                                                    required />
-                                            </div>
-                                            <label for="remember"
-                                                class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember
-                                                me</label>
-                                        </div>
-                                        <a href="#"
-                                            class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost
-                                            Password?</a>
-                                    </div>
-                                    <button type="submit"
-                                        class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login
-                                        to your account</button>
-                                    <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-                                        Not registered? <button type="button" data-modal-target="signup-modal" data-modal-toggle="signup-modal" data-modal-hide="signin-modal"
-                                            class="text-blue-700 hover:underline dark:text-blue-500">Create account</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SignUp modal -->
-
-                <div id="signup-modal" tabindex="-1" aria-hidden="true"
-                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                    <div class="relative p-4 w-full max-w-md max-h-full">
-                        <!-- SignUp modal content -->
-                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                            <!-- SignUp modal header -->
-                            <div
-                                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                    Create an account
-                                </h3>
-                                <button type="button"
-                                    class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                    data-modal-hide="signup-modal">
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                    </svg>
-                                    <span class="sr-only">Close modal</span>
-                                </button>
-                            </div>
-                            <!-- SignUp modal body -->
-                            <div class="p-4 md:p-5">
-                                <form class="space-y-4" action="#">
-                                    <div>
-                                        <label for="name"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Name</label>
-                                        <input type="text" name="name" id="name"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                            placeholder="Full Name" required />
-                                    </div>
-                                    <div>
-                                        <label for="email"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
-                                            email</label>
-                                        <input type="email" name="email" id="email"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                            placeholder="name@company.com" required />
-                                    </div>
-                                    <div>
-                                        <label for="username"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
-                                        <input type="text" name="username" id="username"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                            placeholder="username123" required />
-                                    </div>
-                                    <div>
-                                        <label for="password"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
-                                            password</label>
-                                        <input type="password" name="password" id="password" placeholder="••••••••"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                            required />
-                                    </div>
-                                    <div>
-                                        <label for="confirmPassword"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm your
-                                            password</label>
-                                        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="••••••••"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                            required />
-                                    </div>
-                                    
-                                    <button type="submit"
-                                        class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create Account</button>
-                                    <div class="text-sm font-medium text-gray-500 dark:text-gray-300">Have Account? <button type="button" data-modal-target="signin-modal" data-modal-toggle="signin-modal"  data-modal-hide="signup-modal"class="text-blue-700 hover:underline dark:text-blue-500">Go SignIn</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                    </a>
                 </div>
 
             @endauth
