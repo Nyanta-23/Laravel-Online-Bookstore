@@ -28,24 +28,6 @@ class AuthController extends Controller
         ]);
     }
 
-    public function auth(Request $request)
-    {
-        $credentials = $request->validate([
-            'email' => 'required',
-            'password' => 'required'
-        ]);
-
-        if (Auth::attempt($credentials)) {
-
-            dd('Hi sayang');
-            $request->session()->regenerate();
-
-            return redirect()->intended('/');
-        }
-
-        return back()->with('authError', 'Email or Password is wrong!');
-    }
-
     public function regist(Request $request)
     {
 
@@ -61,5 +43,31 @@ class AuthController extends Controller
         User::create($validated);
 
         return redirect('/auth/signin')->with('success', 'Registration successful! Please SignIn');
+    }
+
+    
+    public function auth(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            
+            $request->session()->regenerate();
+
+            return redirect()->intended('/');
+        }
+
+        return back()->withInput()->with('authError', 'Email or Password is wrong!');
+    }
+
+    public function signOut (Request $request){
+        Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

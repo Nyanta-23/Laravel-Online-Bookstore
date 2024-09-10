@@ -1,6 +1,8 @@
 <x-layout>
     <x-slot:title>{{ $title }}</x-slot:title>
 
+    @dump(old('email'))
+
     <section class="bg-gray-50 dark:bg-gray-900">
         <div class="flex flex-col items-center px-6 py-8 mx-auto lg:py-0 my-10">
             <div

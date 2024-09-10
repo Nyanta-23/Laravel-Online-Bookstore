@@ -21,7 +21,7 @@
 
                 <ul class="hidden lg:flex items-center justify-start gap-6 md:gap-8 py-3 sm:justify-center">
                     <li>
-                        <a href="#" title=""
+                        <a href="/" title=""
                             class="flex text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500">
                             Home
                         </a>
@@ -249,9 +249,13 @@
                         </ul>
 
                         <div class="p-2 text-sm font-medium text-gray-900 dark:text-white">
-                            <a href="#" title=""
-                                class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                                Sign Out </a>
+                            <form action="/auth/signout" method="POST">
+                                @csrf
+                                <button type="submit"
+                                    class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
+                                    Sign Out 
+                                </button>
+                            </form>
                         </div>
                     </div>
 

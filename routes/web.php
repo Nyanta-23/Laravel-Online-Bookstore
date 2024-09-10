@@ -3,8 +3,10 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
 use App\Models\Book;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+// Starter
 Route::get('/', function () {
     return view('books', [
         'title' => 'All Books',
@@ -12,29 +14,27 @@ Route::get('/', function () {
     ]);
 });
 
+// Authentication
+Route::get('/auth/signup', [AuthController::class, 'signup'])->middleware('guest');
+Route::get('/auth/signin', [AuthController::class, 'signin'])->middleware('guest');
+Route::post('/auth/signup', [AuthController::class, 'regist']);
+Route::post('/auth/signin', [AuthController::class, 'auth']);
+Route::post('/auth/signout', [AuthController::class, 'signout'])->middleware('auth');
+
+// App
 Route::get('/book/{book:slug}', function(Book $book) {
 
     return view('book', [
         'title' => 'Detail Book of ' . $book->name,
         'book' => $book
-
     ]);
 });
 
-
-// Todo buat dulu adminnya baru nanti dipikir kembali
 Route::get('/admin', function () {
+
     return view('admin.dashboard');
 });
+// ->middleware('admin')
 
+// Route::resource('/admin/books', BookController::class)->middleware('admin');
 Route::resource('/admin/books', BookController::class);
-
-
-// Sekaragn buat authentication nya setelah itu dipikirin lagi nanti
-
-Route::get('/auth/signup', [AuthController::class, 'signup']);
-Route::get('/auth/signin', [AuthController::class, 'signin']);
-Route::post('/auth/signup', [AuthController::class, 'regist']);
-Route::post('/auth/signin', [AuthController::class, 'auth']);
-
-// Buat middleware untuk selanjutnaya sisanya dipikirin lagi
