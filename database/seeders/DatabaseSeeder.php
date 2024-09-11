@@ -42,6 +42,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call([CategorySeeder::class, AuthorSeeder::class]);
 
-        Book::factory(100)->recycle([Category::all(), Author::all()])->create();
+        Book::factory(5)->recycle([Category::all(), Author::all()])->create();
     }
 }

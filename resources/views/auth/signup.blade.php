@@ -1,7 +1,11 @@
+@php
+    $dangerText = 'text-red-600';
+    $dangerClass =
+        'border-red-600 focus:outline-none focus:ring-0 focus:border-red-600 text-red-600 placeholder:text-red-600';
+@endphp
+
 <x-layout>
     <x-slot:title>{{ $title }}</x-slot:title>
-
-    @dump(old('email'))
 
     <section class="bg-gray-50 dark:bg-gray-900">
         <div class="flex flex-col items-center px-6 py-8 mx-auto lg:py-0 my-10">
@@ -18,18 +22,18 @@
                             <label for="name"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white 
                                 @error('name')
-                                    text-red-600
+                                    {{ $dangerText }}
                                 @enderror
                                 ">
                                 Your Full Name
                             </label>
                             <input type="text" name="name" id="name" value="{{ old('name') }}"
                                 class="bg-gray-50 border  text-gray-900 text-sm rounded-lg focus:ring-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 border-gray-300 focus:border-primary-600 
-                                @error('name') 
-                                border-red-600 focus:outline-none focus:ring-0 focus:border-red-600 text-red-600 placeholder:text-red-600
+                                @error('name')
+                                {{ $dangerClass }}
                                 @enderror
                                 "
-                                placeholder="Name" required autofocus />
+                                placeholder="Name" autofocus />
 
                             @error('name')
                                 <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400">
@@ -41,7 +45,7 @@
                             <label for="username"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white
                                 @error('username')
-                                    text-red-600
+                                    {{ $dangerText }}
                                 @enderror
                                 ">
                                 Your Username
@@ -49,7 +53,7 @@
                             <input type="text" name="username" id="username" value="{{ old('username') }}"
                                 class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 border-gray-300 focus:border-primary-600 
                                 @error('username')
-                                border-red-600 focus:outline-none focus:ring-0 focus:border-red-600 text-red-600 placeholder:text-red-600
+                                {{ $dangerClass }}
                                 @enderror
                                 "
                                 placeholder="Username" required>
@@ -64,7 +68,7 @@
                             <label for="email"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white
                                 @error('email')
-                                    text-red-600
+                                    {{ $dangerText }}
                                 @enderror
                                 ">
                                 Your Email
@@ -72,7 +76,7 @@
                             <input type="email" name="email" id="email" value="{{ old('email') }}"
                                 class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 border-gray-300 focus:border-primary-600 
                                 @error('email') 
-                                border-red-600 focus:outline-none focus:ring-0 focus:border-red-600 text-red-600 placeholder:text-red-600
+                                {{ $dangerClass }}
                                 @enderror
                                 "
                                 placeholder="name@company.com" required>
@@ -87,7 +91,7 @@
                             <label for="password"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white
                                 @error('password')
-                                    text-red-600
+                                    {{ $dangerText }}
                                 @enderror
                                 ">
                                 Your Password
@@ -95,7 +99,7 @@
                             <input type="password" name="password" id="password" placeholder="••••••••"
                                 class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 border-gray-300 focus:border-primary-600 
                                 @error('password') 
-                                border-red-600 focus:outline-none focus:ring-0 focus:border-red-600 text-red-600 placeholder:text-red-600
+                                {{ $dangerClass }}
                                 @enderror
                                 "
                                 required>
@@ -110,7 +114,7 @@
                             <label for="password_confirmation"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white
                                 @error('password')
-                                    text-red-600
+                                    {{ $dangerText }}
                                 @enderror
                                 ">
                                 Confirm Your Password
@@ -119,7 +123,7 @@
                                 placeholder="••••••••"
                                 class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 border-gray-300 focus:border-primary-600 
                                 @error('password') 
-                                border-red-600 focus:outline-none focus:ring-0 focus:border-red-600 text-red-600 placeholder:text-red-600
+                                {{ $dangerClass }}
                                 @enderror
                                 "
                                 required>

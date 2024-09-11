@@ -18,7 +18,12 @@
         <main class="p-2 md:ml-64 h-auto pt-20">
             {{ $slot }}
         </main>
+
+        
     </div>
+
+    
+    <script src="/js/script.js"></script>
 </body>
 
 
