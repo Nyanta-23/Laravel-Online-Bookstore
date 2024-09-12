@@ -126,7 +126,7 @@
                                         {{ $book->book_title }}</th>
                                     <td class="px-4 py-3">
                                         <img class="mx-auto h-full dark:hidden"
-                                            src="{{ $book->image ? asset($book->image) : "https://via.placeholder.com/1200x1200.png?text=$book->book_title" }}"
+                                            src="{{ $book->image ? asset('./storage/' . $book->image) : "https://via.placeholder.com/1200x1200.png?text=$book->book_title" }}"
                                             alt="{{ $book->book_title }}" />
                                     </td>
                                     <td class="px-4 py-3">{{ $book->synopsis }}</td>
@@ -164,9 +164,7 @@
                                                     @method('delete')
                                                     @csrf
 
-                                                    <button
-                                                        class="w-full py-2 px-4 text-start"
-                                                        type="submit"
+                                                    <button class="w-full py-2 px-4 text-start" type="submit"
                                                         onclick="return confirm('Are you sure?')">Delete</button>
                                                 </form>
                                             </div>

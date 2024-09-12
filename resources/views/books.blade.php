@@ -20,7 +20,7 @@
                             <a href="/book/{{ $book->slug }}">
                                 <img class="mx-auto h-full dark:hidden"
                                     src="{{$book->image ? 
-                                    asset($book->image) : "https://via.placeholder.com/1200x1200.png?text=$book->book_title" }} "
+                                    asset('./storage/' . $book->image) : "https://via.placeholder.com/1200x1200.png?text=$book->book_title" }} "
                                     alt="{{ $book->book_title }}" />
                             </a>
                         </div>

@@ -56,11 +56,15 @@ class BookController extends Controller
             'synopsis' => 'required'
         ]);
 
-        if ($request->file('image')) {
-            $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('book-images'), $imageName);
+        // if ($request->file('image')) {
+        //     $imageName = time() . '.' . $request->image->extension();
+        //     $request->image->move(public_path('book-images'), $imageName);
 
-            $validated['image'] = 'book-images/' . $imageName;
+        //     $validated['image'] = 'book-images/' . $imageName;
+        // }
+
+        if($request->file('image')){
+            $validated['image'] = $request->file('image')->store('book-image');
         }
 
         Book::create($validated);

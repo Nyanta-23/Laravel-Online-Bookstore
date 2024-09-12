@@ -9,7 +9,8 @@
 
             <div class="lg:col-span-1 lg:pr-8 flex justify-center">
                 <div class="">
-                    <img src="https://via.placeholder.com/250x300.png" alt="">
+                    <img src="{{ $book->image ? asset('./storage/' . $book->image) : "https://via.placeholder.com/1200x1200.png?text=$book->book_title" }}"
+                        alt="">
                     <p class="text-xs text-center text-gray-500 font-semibold mt-5">The cover image may be different.</p>
                 </div>
             </div>

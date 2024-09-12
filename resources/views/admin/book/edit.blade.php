@@ -134,7 +134,7 @@
                                 @enderror
 
                                 @if ($book->image)
-                                    <img src="{{ asset($book->image) }}" class="w-72 my-3 mx-3 border-none"
+                                    <img src="{{ asset('./storage/' . $book->image) }}" class="w-72 my-3 mx-3 border-none"
                                         id="frame">
                                 @else
                                     <img class="w-72 my-3 mx-3 border-none" id="frame">
