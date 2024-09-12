@@ -38,6 +38,8 @@
             @auth
                 <div class="flex items-center lg:space-x-2">
 
+                    @if(Auth::user()->role != 'admin')
+
                     <button id="myCartDropdownButton1" data-dropdown-toggle="myCartDropdown1" type="button"
                         class="inline-flex items-center rounded-lg justify-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm font-medium leading-none text-gray-900 dark:text-white">
                         <span class="sr-only">
@@ -209,6 +211,8 @@
                             role="button"> Proceed to Checkout </a>
                     </div>
 
+                    @endif
+
                     <button id="userDropdownButton1" data-dropdown-toggle="userDropdown1" type="button"
                         class="inline-flex items-center rounded-lg justify-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm font-medium leading-none text-gray-900 dark:text-white">
                         <svg class="w-5 h-5 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -262,7 +266,7 @@
                         <div class="p-2 text-sm font-medium text-gray-900 dark:text-white">
                             <form action="/auth/signout" method="POST">
                                 @csrf
-                                <button type="submit"
+                                <button onclick="return confirm('Do you want to logout?')"
                                     class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
                                     Sign Out
                                 </button>

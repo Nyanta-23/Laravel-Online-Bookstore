@@ -29,9 +29,12 @@
                         clip-rule="evenodd" />
                 </svg>
 
-                <span class="ml-2 mr-3 self-center text-2xl font-semibold whitespace-nowrap dark:text-white hidden lg:block">Storebook Admin</span>
-                <span class="ml-2 mr-3 self-center text-2xl font-semibold whitespace-nowrap dark:text-white block lg:hidden">Storebook</span>
-                
+                <span
+                    class="ml-2 mr-3 self-center text-2xl font-semibold whitespace-nowrap dark:text-white hidden lg:block">Storebook
+                    Admin</span>
+                <span
+                    class="ml-2 mr-3 self-center text-2xl font-semibold whitespace-nowrap dark:text-white block lg:hidden">Storebook</span>
+
             </a>
         </div>
 
@@ -250,13 +253,19 @@
                             class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">My
                             profile</a>
                     </li>
+                    <li>
+                        <a href="/"
+                            class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">To Users View</a>
+                    </li>
                 </ul>
                 <ul class="py-1 text-gray-700 dark:text-gray-300" aria-labelledby="dropdown">
-                    <li>
-                        <a href="#"
-                            class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign
-                            out</a>
-                    </li>
+                    <form action="/auth/signout" method="POST">
+                        @csrf
+                        <button onclick="return confirm('Do you want to logout?')"
+                            class="inline-flex w-full items-center gap-2 rounded-md px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
+                            Sign Out
+                        </button>
+                    </form>
                 </ul>
             </div>
         </div>
