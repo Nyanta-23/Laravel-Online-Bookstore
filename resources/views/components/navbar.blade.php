@@ -226,26 +226,37 @@
                     </button>
 
                     <div id="userDropdown1"
-                        class="hidden z-10 w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-white antialiased shadow dark:divide-gray-600 dark:bg-gray-700">
+                        class="hidden z-10 w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-white antialiased shadow dark:divide-gray-600 dark:bg-gray-700 md:!left-[-10px]">
+                        <div class="py-3 px-4 grid grid-cols-4">
+                            <img class="w-8 h-8 rounded-full col-span-1"
+                                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gough.png"
+                                alt="user photo" />
+
+                            <div class="col-span-3">
+                                <span class="block text-sm font-semibold text-gray-900 dark:text-white">Neil
+                                    Sims</span>
+                                <span class="block text-sm text-gray-900 truncate dark:text-white">name@flowbite.com</span>
+                            </div>
+                        </div>
                         <ul class="p-2 text-start text-sm font-medium text-gray-900 dark:text-white">
                             <li><a href="#" title=""
                                     class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                                    My Account </a></li>
-                            <li><a href="#" title=""
-                                    class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                                    My Orders </a></li>
-                            <li><a href="#" title=""
-                                    class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                                    Settings </a></li>
-                            <li><a href="#" title=""
-                                    class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                                    Favourites </a></li>
-                            <li><a href="#" title=""
-                                    class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                                    Delivery Addresses </a></li>
-                            <li><a href="#" title=""
-                                    class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                                    Billing Data </a></li>
+                                    My Profile </a></li>
+                            @if (Auth::user()->role != 'admin')
+                                <li><a href="#" title=""
+                                        class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
+                                        My Orders </a></li>
+                                <li><a href="#" title=""
+                                        class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
+                                        Favourites </a></li>
+                                <li><a href="#" title=""
+                                        class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
+                                        Delivery Addresses </a></li>
+                            @else
+                                <li><a href="/admin" title=""
+                                        class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
+                                        Manage Product / Content</a></li>
+                            @endif
                         </ul>
 
                         <div class="p-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -253,7 +264,7 @@
                                 @csrf
                                 <button type="submit"
                                     class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                                    Sign Out 
+                                    Sign Out
                                 </button>
                             </form>
                         </div>

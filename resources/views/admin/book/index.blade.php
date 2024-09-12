@@ -122,8 +122,9 @@
                             @foreach ($books as $book)
                                 <tr class="border-b dark:border-gray-700">
                                     <th scope="row"
-                                        class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        {{ $book->book_title }}</th>
+                                        class="pr-4 py-3 pl-5 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        {{ $book->book_title }}
+                                    </th>
                                     <td class="px-4 py-3">
                                         <img class="mx-auto h-full dark:hidden"
                                             src="{{ $book->image ? asset('./storage/' . $book->image) : "https://via.placeholder.com/1200x1200.png?text=$book->book_title" }}"
