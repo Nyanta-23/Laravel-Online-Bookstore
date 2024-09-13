@@ -119,7 +119,7 @@
 
                         <tbody>
 
-                            @foreach ($books as $book)
+                            @forelse ($books as $book)
                                 <tr class="border-b dark:border-gray-700">
                                     <th scope="row"
                                         class="pr-4 py-3 pl-5 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -172,7 +172,12 @@
                                         </div>
                                     </td>
                                 </tr>
-                            @endforeach
+                                @empty
+                                <tr>
+                                    <h5 class="text-center">Data is empty</h5>
+                                </tr>
+                                
+                            @endforelse
 
                         </tbody>
                     </table>

@@ -10,6 +10,8 @@ class OrderItem extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function book(): BelongsTo
     {
         return $this->belongsTo(Book::class);
