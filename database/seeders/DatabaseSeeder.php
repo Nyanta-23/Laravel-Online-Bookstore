@@ -47,6 +47,6 @@ class DatabaseSeeder extends Seeder
         Book::factory(5)->recycle([Category::all(), Author::all()])->create();
         
         Order::factory(20)->recycle(User::factory(5)->create())->create();
-        OrderItem::factory(100)->recycle([Order::all(), Book::all()])->create();
+        OrderItem::factory(59)->recycle([Book::all(), Order::all()])->create();
     }
 }

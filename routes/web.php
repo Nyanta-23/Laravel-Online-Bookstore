@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\OrderController;
 use App\Models\Book;
 use Illuminate\Support\Facades\Route;
 
@@ -37,5 +38,8 @@ Route::get('/admin', function () {
 
 Route::get('/admin/books/checkSlug', [BookController::class, 'checkSlug'])->middleware('admin');
 Route::resource('/admin/books', BookController::class)->middleware('admin');
+Route::resource('/admin/orders', OrderController::class)->middleware('admin')->except(['edit']);
 
-// Ubah penyimpanan menjadi ke storage jangan langsung ke public. yang dimana storage nanti akan di link ke public
+
+
+// Betulkan tampilan order untuk menampilkan order items agar bisa mendapatkan buku yang dibeli, jumlah yang dibeli, berapa banyak buku yang dibeli, dan jumlah keseluruhan harganya dari jumlah buku yang dibeli
