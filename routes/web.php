@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Models\Book;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +41,7 @@ Route::get('/admin/books/checkSlug', [BookController::class, 'checkSlug'])->midd
 Route::resource('/admin/books', BookController::class)->middleware('admin');
 Route::resource('/admin/orders', OrderController::class)->middleware('admin')->except(['edit']);
 
-
+Route::get('/carts', [CartController::class, 'load']);
+// Route::post('/carts', [Car]);
 
 // Betulkan tampilan order untuk menampilkan order items agar bisa mendapatkan buku yang dibeli, jumlah yang dibeli, berapa banyak buku yang dibeli, dan jumlah keseluruhan harganya dari jumlah buku yang dibeli

@@ -15,7 +15,7 @@
 
     <div class="antialiased bg-gray-50 dark:bg-gray-900">
         <x-navbar />
-        
+
         <main>
             <x-header>{{ $title }}</x-header>
 
@@ -25,7 +25,7 @@
         </main>
     </div>
 
-    <script src="/js/script.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
 </body>
 
 </html>

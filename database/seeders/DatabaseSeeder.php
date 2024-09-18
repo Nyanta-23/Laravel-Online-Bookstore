@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Author;
 use App\Models\Book;
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\OrderItem;
@@ -44,9 +45,18 @@ class DatabaseSeeder extends Seeder
 
         $this->call([CategorySeeder::class, AuthorSeeder::class]);
 
-        Book::factory(5)->recycle([Category::all(), Author::all()])->create();
-        
+        Book::factory(5)->recycle(
+            [Category::all(), Author::all()]
+            )->create();
+
         Order::factory(20)->recycle(User::factory(5)->create())->create();
-        OrderItem::factory(59)->recycle([Book::all(), Order::all()])->create();
+        
+        OrderItem::factory(59)->recycle(
+            [Book::all(), Order::all()]
+        )->create();
+
+        Cart::factory(20)->recycle(
+            [Book::all(), 
+            User::all()])->create();
     }
 }
