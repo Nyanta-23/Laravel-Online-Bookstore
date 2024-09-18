@@ -24,8 +24,6 @@ class CartFactory extends Factory
         return [
             'book_id' => Book::factory(),
             'user_id' => User::factory(),
-            'name' => fake()->sentence(3, false),
-            'price' => round(rand(50000, 250000)),
             'quantity' => round(rand(1,10))
         ];
     }

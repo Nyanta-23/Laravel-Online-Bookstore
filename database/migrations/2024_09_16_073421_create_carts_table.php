@@ -22,8 +22,6 @@ return new class extends Migration
                 indexName: 'carts_user_id'
             );
             $table->integer('quantity');
-            $table->string('name');
-            $table->double('price');
 
             $table->timestamps();
         });

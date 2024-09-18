@@ -39,17 +39,18 @@ function dataCarts() {
       let cartItemsHtml = '';
 
       const cartData = data.carts;
-
+      
       cartData.forEach(item => {
+        
         // console.log(item.user_id);
-        if (item.user_id != data.user) {
+        if (item.username != data.user) {
           return null;
         }
 
         cartItemsHtml += `
       <div>
           <a href="#" class="truncate text-sm font-semibold leading-none text-gray-900 dark:text-white hover:underline">
-              ${item.name}
+              ${item.book_title}
           </a>
           <p class="mt-0.5 truncate text-sm font-normal text-gray-500 dark:text-gray-400">
           Rp.${item.price.toLocaleString('id-ID')}

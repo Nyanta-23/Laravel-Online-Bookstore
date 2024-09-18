@@ -7,16 +7,22 @@ use App\Models\Cart;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
 
     public function load() {
-        // $cart = Cart::where('user_id', Auth::user()->id)->latest()->get();
-        $cart = Cart::latest()->get();
+
+        $cart = DB::table('carts')
+            ->join('books', 'carts.book_id', '=', 'books.id')
+            ->join('users', 'carts.user_id', '=', 'users.id')
+            ->select('carts.*', 'books.*', 'users.username')
+            ->get()
+            ;
 
         return response()->json([
-            'user' => Auth::user()->id,
+            'user' => Auth::user()->username,
             'carts' => $cart
         ], 200);
     }
