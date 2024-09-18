@@ -63,7 +63,7 @@
                         class="hidden z-10 mx-auto max-w-sm space-y-4 overflow-hidden rounded-lg bg-white p-4 antialiased shadow-lg dark:bg-gray-800">
                         
                         <div class="grid grid-cols-2" id="carts">
-                            
+                            {{-- This javascript adding carts --}}
                         </div>
 
                         <a href="#" title=""

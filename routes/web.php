@@ -45,3 +45,5 @@ Route::get('/carts', [CartController::class, 'load']);
 // Route::post('/carts', [Car]);
 
 // Betulkan tampilan order untuk menampilkan order items agar bisa mendapatkan buku yang dibeli, jumlah yang dibeli, berapa banyak buku yang dibeli, dan jumlah keseluruhan harganya dari jumlah buku yang dibeli
+
+// Menambahkan adding dan delete untuk carts pikirkan itu
