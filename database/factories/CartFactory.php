@@ -23,7 +23,7 @@ class CartFactory extends Factory
     {
         return [
             'book_id' => Book::factory(),
-            'user_id' => User::factory(),
+            'user_id' => '2',
             'quantity' => round(rand(1,10))
         ];
     }

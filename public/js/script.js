@@ -2,6 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('myCartDropdownButton1').click();
+  dataCarts();
 });
 
 function previewImage() {
@@ -26,11 +27,9 @@ if (title != null) {
 // });
 
 
-
 // Cart
 function dataCarts() {
   const cart = document.getElementById('carts');
-
 
   return fetch('/carts')
     .then(response => response.json())
@@ -39,17 +38,16 @@ function dataCarts() {
       let cartItemsHtml = '';
 
       const cartData = data.carts;
-      
+
       cartData.forEach(item => {
-        
-        // console.log(item.user_id);
-        if (item.username != data.user) {
+
+        if (item.username !== data.user) {
           return null;
         }
 
         cartItemsHtml += `
       <div>
-          <a href="#" class="truncate text-sm font-semibold leading-none text-gray-900 dark:text-white hover:underline">
+          <a href="/book/${item.slug}" class="truncate text-sm font-semibold leading-none text-gray-900 dark:text-white hover:underline">
               ${item.book_title}
           </a>
           <p class="mt-0.5 truncate text-sm font-normal text-gray-500 dark:text-gray-400">
@@ -60,7 +58,7 @@ function dataCarts() {
       <div class="flex items-center justify-end gap-6">
           <p class="text-sm font-normal leading-none text-gray-500 dark:text-gray-400">Qty: ${item.quantity}</p>
       
-          <button type="button" class="text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-600">
+          <button type="button" onClick=deleteCart(${item.id}) class="text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-600">
               <span class="sr-only"> Remove </span>
               <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor" viewBox="0 0 24 24">
@@ -77,14 +75,81 @@ function dataCarts() {
     })
 }
 
-dataCarts();
+function addCart(book_id, quantity) {
 
-// console.log(dataCarts())
+  const user = document.querySelector("meta[name='user-id']").getAttribute('content');
 
-// const cartData = [
-//   { name: 'Apple iPhone 15', price: '$599', quantity: 1 },
-//   { name: 'Samsung Galaxy S23', price: '$699', quantity: 2 },
-//   { name: 'Google Pixel 8', price: '$499', quantity: 1 }
-// ];
+  fetch('/carts', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRF-TOKEN': document.querySelector("meta[name='csrf-token']").getAttribute('content')
+    },
+    body: JSON.stringify({
+      'user_id': user,
+      'book_id': book_id,
+      'quantity': quantity
+    })
+  })
+
+    .then(response => {
+
+      console.log(`HTTP Status: ${response.status}`);
+
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      return response.json()
+    })
+    .then(data => {
+
+      dataCarts()
+
+      console.log('Success: ', data)
+    })
+    .catch((error) => {
+      console.error('Error: ', error);
+    });
+
+}
+
+function deleteCart(cart_id) {
+
+  console.log(cart_id)
+
+  const user = document.querySelector("meta[name='user-id']").getAttribute('content');
+
+  fetch(`/carts/${cart_id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRF-TOKEN': document.querySelector("meta[name='csrf-token']").getAttribute('content')
+    },
+    body: JSON.stringify({
+      'user_id': user
+    })
+  })
+    .then(res => {
+
+      if (!res.ok) {
+        throw new Error('Failed to delete cart item');
+      }
+
+      return res.json()
+    })
+    .then(response => {
+
+      dataCarts();
+      console.log(response); // Buatin alert saja
+    })
+    .catch((error) => {
+      console.error('Error: ', error);
+    });
+}
+
+
+
 
 

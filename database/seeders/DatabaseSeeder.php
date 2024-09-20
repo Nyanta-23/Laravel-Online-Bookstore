@@ -55,7 +55,7 @@ class DatabaseSeeder extends Seeder
             [Book::all(), Order::all()]
         )->create();
 
-        Cart::factory(20)->recycle(
+        Cart::factory(5)->recycle(
             [Book::all(), 
             User::all()])->create();
     }
