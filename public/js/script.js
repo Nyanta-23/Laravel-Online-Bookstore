@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('myCartDropdownButton1').click();
-  dataCarts();
+  carts();
 });
 
 function previewImage() {
@@ -28,7 +28,7 @@ if (title != null) {
 
 
 // Cart
-function dataCarts() {
+function carts() {
   const cart = document.getElementById('carts');
 
   return fetch('/carts')
@@ -58,7 +58,10 @@ function dataCarts() {
       <div class="flex items-center justify-end gap-6">
           <p class="text-sm font-normal leading-none text-gray-500 dark:text-gray-400">Qty: ${item.quantity}</p>
       
-          <button type="button" onClick=deleteCart(${item.id}) class="text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-600">
+          <button type="button" 
+
+          onClick=deleteCart(${item.id})
+          class="text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-600">
               <span class="sr-only"> Remove </span>
               <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor" viewBox="0 0 24 24">
@@ -75,7 +78,7 @@ function dataCarts() {
     })
 }
 
-function addCart(book_id, quantity) {
+function addCart(book_id, quantity, cart_id) {
 
   const user = document.querySelector("meta[name='user-id']").getAttribute('content');
 
@@ -86,13 +89,16 @@ function addCart(book_id, quantity) {
       'X-CSRF-TOKEN': document.querySelector("meta[name='csrf-token']").getAttribute('content')
     },
     body: JSON.stringify({
-      'user_id': user,
+      'id': cart_id,
+      'user_id': parseInt(user),
       'book_id': book_id,
       'quantity': quantity
     })
   })
 
     .then(response => {
+
+      console.log(response)
 
       console.log(`HTTP Status: ${response.status}`);
 
@@ -105,7 +111,7 @@ function addCart(book_id, quantity) {
     })
     .then(data => {
 
-      dataCarts()
+      carts()
 
       console.log('Success: ', data)
     })
@@ -116,8 +122,6 @@ function addCart(book_id, quantity) {
 }
 
 function deleteCart(cart_id) {
-
-  console.log(cart_id)
 
   const user = document.querySelector("meta[name='user-id']").getAttribute('content');
 
@@ -133,6 +137,8 @@ function deleteCart(cart_id) {
   })
     .then(res => {
 
+      console.log(res)
+
       if (!res.ok) {
         throw new Error('Failed to delete cart item');
       }
@@ -141,15 +147,40 @@ function deleteCart(cart_id) {
     })
     .then(response => {
 
-      dataCarts();
+      carts();
       console.log(response); // Buatin alert saja
     })
     .catch((error) => {
       console.error('Error: ', error);
     });
+
 }
 
 
 
+// async function getCartById(cart_id) {
+//   try {
+//     const csrfToken = document.querySelector("meta[name='csrf-token']")?.getAttribute('content');
+//     if (!csrfToken) {
+//       throw new Error('CSRF token not found');
+//     }
 
+//     const response = await fetch(`/carts/${cart_id}`, {
+//       method: 'GET',
+//       headers: {
+//         'Content-Type': 'application/json',
+//         'X-CSRF-TOKEN': csrfToken
+//       }
+//     });
 
+//     if (!response.ok) {
+//       throw new Error(`Error: ${response.status} ${response.statusText}`);
+//     }
+
+//     const data = await response.json();
+//     return data;
+//   } catch (error) {
+//     console.error('Error:', error);
+//     return null; 
+//   }
+// }
