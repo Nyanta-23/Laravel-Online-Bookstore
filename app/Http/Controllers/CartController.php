@@ -69,8 +69,6 @@ class CartController extends Controller
         }
         $cartQuantity = Cart::where('id', $cart->id)->value('quantity');
 
-        // $cartQuantity = Cart::where('id', $cart->id)->get();
-
         Cart::where('id', $request->id)->update(['quantity' => $cartQuantity - 1]);
 
 
